@@ -39,7 +39,7 @@ module Fastlane
 
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :all,description: "all")
+          FastlaneCore::ConfigItem.new(key: :all,description: "all"),
           FastlaneCore::ConfigItem.new(key: :path,
                                        description: "The file you want to commit",
                                        is_string: true),
@@ -50,22 +50,18 @@ module Fastlane
 
       def self.example_code
         [
-          'git_commit(all:true , path: "*" , message: "Version Bump"',
+          'git_commit(all:true , path: ["*"], message: "Version Bump")',
           'git_commit(path: "./version.txt", message: "Version Bump")',
           'git_commit(path: ["./version.txt", "./changelog.txt"], message: "Version Bump")',
           'git_commit(path: ["./*.txt", "./*.md"], message: "Update documentation")'
         ]
       end
 
-      def self.category
-        :source_control
-      end
-
       def self.is_supported?(platform)
         # Adjust this if your plugin only works for a particular platform (iOS vs. Android, for example)
         # See: https://docs.fastlane.tools/advanced/#control-configuration-by-lane-and-by-platform
         #
-        # [:ios, :mac, :android].include?(platform)
+        [:ios, :mac, :android].include?(platform)
         true
       end
     end
