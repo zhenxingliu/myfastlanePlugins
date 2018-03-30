@@ -11,11 +11,11 @@ module Fastlane
           paths = params[:path].map(&:shellescape).join(' ')
         end
         UI.message("The git_commit_lzx plugin is working!")
-        if params[:all] == true {
+        if params[:all] == true 
           result = Actions.sh("git commit -a -m #{params[:message].shellescape}")
-        }else{
+        else
           result = Actions.sh("git commit -m #{params[:message].shellescape} #{paths}")
-        }
+        end
         UI.success("Successfully committed \"💾.")
         return result
       end
