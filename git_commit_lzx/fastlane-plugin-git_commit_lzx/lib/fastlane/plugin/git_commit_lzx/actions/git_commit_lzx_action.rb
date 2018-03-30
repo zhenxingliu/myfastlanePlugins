@@ -39,7 +39,7 @@ module Fastlane
 
       def self.available_options
         [
-          FastlaneCore::ConfigItem.new(key: :all,description: "",)
+          FastlaneCore::ConfigItem.new(key: :all,description: "all")
           FastlaneCore::ConfigItem.new(key: :path,
                                        description: "The file you want to commit",
                                        is_string: true),
